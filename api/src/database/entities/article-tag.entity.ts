@@ -15,11 +15,11 @@ export class ArticleTag {
   @PrimaryGeneratedColumn()
   readonly id: number;
 
-  @PrimaryColumn()
-  article_id: number;
+  @PrimaryColumn({ name: 'article_id' })
+  articleId: number;
 
-  @PrimaryColumn()
-  tag_id: number;
+  @PrimaryColumn({ name: 'tag_id' })
+  tagId: number;
 
   @ManyToOne(() => Article, (article) => article.id, {
     cascade: true,
@@ -33,9 +33,9 @@ export class ArticleTag {
   @JoinColumn({ name: 'tag_id' })
   tag: Tag[];
 
-  @CreateDateColumn()
-  readonly created_at: Date;
+  @CreateDateColumn({ name: 'created_at' })
+  readonly createdAt: Date;
 
-  @UpdateDateColumn()
-  readonly updated_at: Date;
+  @UpdateDateColumn({ name: 'updated_at' })
+  readonly updatedAt: Date;
 }

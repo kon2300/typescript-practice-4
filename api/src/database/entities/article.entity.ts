@@ -15,6 +15,8 @@ export class Article {
   readonly id: number;
 
   @Column({ name: 'user_id' })
+  userId: string;
+
   @ManyToOne(() => User, {
     cascade: true,
   })
@@ -25,11 +27,11 @@ export class Article {
   title: string;
 
   @Column('text')
-  content: number;
+  content: string;
 
-  @CreateDateColumn()
-  readonly created_at: Date;
+  @CreateDateColumn({ name: 'created_at' })
+  readonly createdAt: Date;
 
-  @UpdateDateColumn()
-  readonly updated_at: Date;
+  @UpdateDateColumn({ name: 'updated_at' })
+  readonly updatedAt: Date;
 }
