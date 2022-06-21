@@ -5,14 +5,14 @@ services:
     build:
       context: ./api
       args:
-        app_env: "development"
+        app_env: 'development'
     links:
       - 'db'
     ports:
       - '3000:3000'
     volumes:
       - ./api:/src
-      - ./src/node_modules
+      - ./api/node_modules
     tty: true
     container_name: api
 
@@ -24,7 +24,7 @@ services:
     hostname: db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
+      MYSQL_USER: user
       MYSQL_PASSWORD: root
       MYSQL_DATABASE: sample
     volumes:
